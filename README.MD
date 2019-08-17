@@ -55,7 +55,7 @@ You can continue to press `Tab` for additional choices until you are satisfied w
 
 ```
 cd ~/.oh-my-zsh/custom/plugins
-git clone https://github.com/rm511130/pks-zsh-autocomplete-plugin.git pks
+git clone https://github.com/tybritten/pks-zsh-autocomplete-plugin.git pks
 ```
 
 * Add the `pks` plugin to your `~/.zshrc` file:
