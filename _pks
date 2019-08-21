@@ -7,7 +7,7 @@ __pks_clusters() {
     declare -a cont_cmd
     if [[ $(pks --version | awk -F '.' '{print $2}') -lt 5 ]]
     then
-      cont_cmd=($(pks clusters | awk -F '  ' 'NR>2{print $1}'))
+      cont_cmd=($(pks clusters | awk -F '  ' 'NR>2{print $2}'))
     else
       cont_cmd=($(pks clusters | awk 'NR>2{print $1}'))
     fi
@@ -60,6 +60,7 @@ _pks_cmds=(
 __cluster() {
     _arguments \
       '1:cluster name:__pks_clusters' \
+      '--details[Show details]' \
       '--help[help for cluster]' \
       '--json[Return the PKS-API output as json]'
 }
