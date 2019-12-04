@@ -5,7 +5,7 @@
 # Output a selectable list of clusters
 __pks_clusters() {
     declare -a cont_cmd
-    if [[ $(pks --version | awk -F '.' '{print $2}') -lt 5 ]]
+    if [[ $(pks --version | awk -F '.' '{print $2}') -gt 5 ]]
     then
       cont_cmd=($(pks clusters | awk -F '  ' 'NR>2{print $2}'))
     else
