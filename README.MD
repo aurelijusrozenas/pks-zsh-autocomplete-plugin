@@ -104,13 +104,13 @@ echo $SHELL
 ```
 cluster                 -- View the details of the cluster
 clusters                -- Show all clusters created with PKS
-create-cluster          -- Creates a kubernetes cluster, requires cluster na
+create-cluster          -- Creates a kubernetes cluster, requires cluster name, an external host name, and
 create-network-profile  -- Create a network profile
-create-sink             -- Creates a sink for sending all log data to syslog
-delete-cluster          -- Deletes a kubernetes cluster, requires cluster na
+create-sink             -- Creates a sink for sending all log data to syslog://
+delete-cluster          -- Deletes a kubernetes cluster, requires cluster name
 delete-network-profile  -- Delete a network profile
 delete-sink             -- Deletes a sink from the given cluster
-get-credentials         -- Allows you to connect to a cluster and use kubect
+get-credentials         -- Allows you to connect to a cluster and use kubectl
 get-kubeconfig          -- Allows you to get kubeconfig for your username
 help                    -- Help about any command
 login                   -- Log in to PKS
@@ -120,6 +120,7 @@ network-profiles        -- Show all network profiles created with PKS
 plans                   -- View the preconfigured plans available
 resize                  -- Changes the number of worker nodes for a cluster
 sinks                   -- List sinks for the given cluster
-update-cluster          -- Updates the configuration of a specific kubernete
-upgrade-cluster         -- Upgrades the kubernetes clusters
+update-cluster          -- Updates the configuration of a specific kubernetes cluster
+upgrade-cluster         -- Upgrades the kubernetes cluster
+upgrade-clusters        -- Upgrades the kubernetes clusters
 ```
