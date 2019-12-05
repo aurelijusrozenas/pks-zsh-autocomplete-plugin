@@ -54,7 +54,8 @@ _pks_cmds=(
   'resize:Changes the number of worker nodes for a cluster'
   'sinks:List sinks for the given cluster'
   'update-cluster:Updates the configuration of a specific kubernetes cluster'
-  'upgrade-cluster:Upgrades the kubernetes clusters'
+  'upgrade-cluster:Upgrades the kubernetes cluster'
+  'upgrade-clusters:Upgrades the kubernetes clusters'
 )
 
 __cluster() {
@@ -209,8 +210,19 @@ __upgrade-cluster() {
         '--help[help for upgrade-cluster]' \
         '--json[Return the PKS-API output as json. Only applicable when used with --wait flag]' \
         '--non-interactive[Dont ask for user input]'
+        '--wait[Wait for the operation to finish]'
 }
 
+__upgrade-clusters() {
+    _arguments \
+        '--canaries[Optional, list of clusters to be treated as canaries. Will upgrade sequentially before other clusters. Should be a comma separated list of names.]' \
+        '--clusters[List of clusters to be upgraded. Should be a comma separated list of names.]:clusters existing_clusters:__pks_clusters' \
+        '--help[help for upgrade-clusters]' \
+        '--json[Return the PKS-API output as json. Only applicable when used with --wait flag]' \
+        '--max-in-flight[Optional, number of clusters to be upgraded in parallel (default 1)]' \
+        '--non-interactive[Dont ask for user input]' \
+        '--wait[Wait for the operation to finish]'
+        }
 _arguments '*:: :->command'
 
 if (( CURRENT == 1 )); then
@@ -256,4 +268,6 @@ case "$words[1]" in
     __update-cluster ;;
   upgrade-cluster)
     __upgrade-cluster ;;
+  upgrade-clusters)
+    __upgrade-clusters ;;
 esac
